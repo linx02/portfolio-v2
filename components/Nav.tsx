@@ -69,6 +69,7 @@ export default function Nav() {
                             <AnimatedListItem href="#work">Work</AnimatedListItem>
                             <AnimatedListItem href="#skills">Skills</AnimatedListItem>
                             <AnimatedListItem href="#contact">Contact</AnimatedListItem>
+                            <AnimatedListItem href="https://v1.linuselvius.com">v1</AnimatedListItem>
                         </ul>
                     </div>
                 </div>
@@ -112,6 +113,9 @@ export default function Nav() {
                                 </li>
                                 <li>
                                     <a href="#contact" className="hover:text-blue transition duration-300 ease-in-out" onClick={toggleNavbar}>Contact</a>
+                                </li>
+                                <li>
+                                    <a href="https://v1.linuselvius.com" className="hover:text-blue transition duration-300 ease-in-out" onClick={toggleNavbar}>Contact</a>
                                 </li>
                             </ul>
                         </motion.div>
