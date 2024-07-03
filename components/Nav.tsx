@@ -115,7 +115,7 @@ export default function Nav() {
                                     <a href="#contact" className="hover:text-blue transition duration-300 ease-in-out" onClick={toggleNavbar}>Contact</a>
                                 </li>
                                 <li>
-                                    <a href="https://v1.linuselvius.com" className="hover:text-blue transition duration-300 ease-in-out" onClick={toggleNavbar}>Contact</a>
+                                    <a href="https://v1.linuselvius.com" className="hover:text-blue transition duration-300 ease-in-out" onClick={toggleNavbar}>v1</a>
                                 </li>
                             </ul>
                         </motion.div>
