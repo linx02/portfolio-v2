@@ -3,8 +3,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useAnimation } from 'framer-motion';
 import useIsMobile from '@/app/utils/useIsMobile';
+import Link from 'next/link';
 
-const AnimatedListItem = ({ href, children }: { href: string; children: React.ReactNode }) => {
+const AnimatedListItem = ({ href, children }: { href: string; children: React.ReactNode; }) => {
     const controls = useAnimation();
 
     const handleMouseEnter = () => {
@@ -49,9 +50,22 @@ const scrollToTop = () => {
     });
 }
 
-export default function Nav() {
+export default function Nav({lang}: {lang:'en' | 'sv'}) {
     const isMobile = useIsMobile();
     const [isOpen, setIsOpen] = useState(false);
+
+    const content = {
+        en: {
+            work: "Work",
+            skills: "Skills",
+            contact: "Contact"
+        },
+        sv: {
+            work: "Projekt",
+            skills: "Kompetens",
+            contact: "Kontakt"
+        }
+    };
 
     const toggleNavbar = () => {
         setIsOpen(!isOpen);
@@ -66,10 +80,15 @@ export default function Nav() {
                             Linus
                         </button>
                         <ul className="flex space-x-6">
-                            <AnimatedListItem href="#work">Work</AnimatedListItem>
-                            <AnimatedListItem href="#skills">Skills</AnimatedListItem>
-                            <AnimatedListItem href="#contact">Contact</AnimatedListItem>
+                            <AnimatedListItem href="#work">{content[lang]["work"]}</AnimatedListItem>
+                            <AnimatedListItem href="#skills">{content[lang]["skills"]}</AnimatedListItem>
+                            <AnimatedListItem href="#contact">{content[lang]["contact"]}</AnimatedListItem>
                             <AnimatedListItem href="https://v1.linuselvius.com">v1</AnimatedListItem>
+                            { lang == 'en' ?
+                            <Link href="/sv" className='flex items-center'><li>🇸🇪</li></Link>
+                            :
+                            <Link href="/" className='flex items-center'><li>🇬🇧</li></Link>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -83,11 +102,18 @@ export default function Nav() {
                         <button onClick={scrollToTop} className='hover:text-blue transition duration-300 ease-in-out'>
                             Linus
                         </button>
-                        <button onClick={toggleNavbar}>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                            </svg>
-                        </button>
+                        <div className='flex items-center space-x-4'>
+                            { lang == 'en' ?
+                                <Link href="/sv" className='flex items-center'>🇸🇪</Link>
+                                :
+                                <Link href="/" className='flex items-center'>🇬🇧</Link>
+                            }
+                            <button onClick={toggleNavbar}>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <AnimatePresence>
