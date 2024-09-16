@@ -34,11 +34,10 @@ export default function RootLayout({
             "@type": "Person",
             "name": "Linus Elvius",
             "url": "https://www.linuselvius.com/",
-            "image": "https://www.linuselvius.com/images/profile.jpg", // Update with your actual image URL
+            "image": "https://www.linuselvius.com/images/profile-real.png",
             "sameAs": [
-              "https://www.linkedin.com/in/linuselvius",
-              "https://github.com/linuselvius",
-              "https://twitter.com/linuselvius",
+              "https://www.linkedin.com/in/linus-elvius-52b098266",
+              "https://github.com/linx02",
             ],
             "jobTitle": "Software Developer",
             "address": {
